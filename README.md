@@ -4,7 +4,19 @@ This repository aims to solve questions asked from the daily-coding-problem webs
 
 ## Usage
 
-Besides execution the normal program, more on its usage is about to come: `/* TODO */`
+```text
+usage: main.py [-h] [-t] [-b] n [n ...]
+
+Test and benchmark daily problems
+
+positional arguments:
+  n           Problem number to test or benchmark
+
+optional arguments:
+  -h, --help  show this help message and exit
+  -t          Test problem set
+  -b          Benchmark problem set
+```
 
 ## Questions
 

@@ -6,6 +6,7 @@ def naive(numbers: list, sums_to: int) -> bool:
     return False
 
 def single_pass_with_sort(numbers: list, sums_to: int) -> bool:
+
     numbers.sort()
     start, end = 0, len(numbers) - 1
 
@@ -20,3 +21,6 @@ def single_pass_with_sort(numbers: list, sums_to: int) -> bool:
             end -= 1
 
     return False
+
+# don't benchmark naive because it takes too long
+setattr(naive, 'benchmark', False)

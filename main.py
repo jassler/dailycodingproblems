@@ -37,7 +37,8 @@ try:
                 module = import_module('{}.{}'.format(folder, file[:-3]))
                 for _, f in getattr(module, '__dict__').items():
                     
-                    if callable(f):
+                    if callable(f) and getattr(f, 'test', True):
+                        print(getattr(f, 'decorator_list'))
                         had_tests = True
                         testmain.test(f, cases)
         
@@ -57,7 +58,7 @@ try:
                 module = import_module('{}.{}'.format(folder, file[:-3]))
                 for _, f in getattr(module, '__dict__').items():
                     
-                    if callable(f):
+                    if callable(f) and getattr(f, 'benchmark', True):
                         had_benchmarks = True
                         testmain.benchmark(f, cases)
         

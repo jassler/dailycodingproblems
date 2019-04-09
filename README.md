@@ -2,7 +2,9 @@
 
 This repository aims to solve questions asked from the daily-coding-problem website: <https://www.dailycodingproblem.com/>
 
-## Usage
+Parts of this README have been auto-generated. If new problems are added or the command line arguments change, run `ptyhon update_readme.py` (Python version 3) to update this README.
+
+## Usage (`*`)
 
 ```text
 usage: main.py [-h] [-t] [-b] n [n ...]
@@ -64,7 +66,7 @@ setattr(ignore_me_completely, 'test', False)
 setattr(ignore_me_completely, 'benchmark', False)
 ```
 
-## Questions
+## Questions (`*`)
 
 ### Problem #1 [Easy]
 

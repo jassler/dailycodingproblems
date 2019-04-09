@@ -2,7 +2,7 @@
 
 This repository aims to solve questions asked from the daily-coding-problem website: <https://www.dailycodingproblem.com/>
 
-Parts of this README have been auto-generated. If new problems are added or the command line arguments change, run `ptyhon update_readme.py` (Python version 3) to update this README.
+Parts of this README have been auto-generated. If new problems are added or the command line arguments change, run `python update_readme.py` (Python version 3) to update this README.
 
 ## Usage (`*`)
 

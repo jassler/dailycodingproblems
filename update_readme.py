@@ -19,7 +19,7 @@ for line in file:
         continue
     
     next_header = False
-    if line.startswith('## Usage'):
+    if line == '## *Usage\n':
         print('Collecting usage...')
         next_header = True
 
@@ -29,7 +29,7 @@ for line in file:
         dest.write('```\n\n')
         continue
     
-    if line.startswith('## Questions'):
+    if line == '## *Questions\n':
         print('Collecting questions...')
         next_header = True
 

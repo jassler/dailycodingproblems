@@ -1,3 +1,5 @@
+# Last argument is the expected result, everything before that the given input
+
 problem_001 = [
     [[1, 19, 39, 40], 20, True],
     [[1, 19, 39, 40], 40, True],

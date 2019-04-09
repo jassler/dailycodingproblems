@@ -16,6 +16,9 @@ args = parser.parse_args()
 testing = args.t
 benchmark = args.b
 
+def print_err(msg: str):
+    print(testmain.style.RED(msg))
+
 def handle_flag(folder: str, testtype: str):
     '''testtype should be either test or benchmark'''
 
@@ -33,7 +36,7 @@ def handle_flag(folder: str, testtype: str):
     
     cases = getattr(__import__(casemodule), folder, [])
     if len(cases) == 0:
-        print('No {} cases under the name of {}. Add tests to testcases.py'.format(testtype, folder))
+        print_err('No {} cases under the name of {}. Add tests to testcases.py'.format(testtype, folder))
         return
     
     had_tests = False
@@ -47,13 +50,14 @@ def handle_flag(folder: str, testtype: str):
                     evalutae(f, cases)
     
     if not had_tests:
-        print('No functions found to {}'.format(testtype))
+        print_err('No functions found to {}'.format(testtype))
 
 for number in args.problems:
+    print(testmain.style.UNDERLINE("\n^\\./^ Analyzing Problem Set {:03d} ^\\./^".format(number)))
     folder = 'problem_{:03d}'.format(number)
     if not os.path.isdir(folder):
-        print('Problem {} does not exist'.format(folder))
-        exit(1)
+        print_err('Problem {} does not exist'.format(folder))
+        continue
 
     path.insert(0, folder)
 

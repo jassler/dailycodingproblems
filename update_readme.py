@@ -38,7 +38,10 @@ for line in file:
         folders = list(filter(lambda s: s.startswith('problem_') and os.path.isdir(s), os.listdir('./')))
         folders.sort()
         for folder in folders:
+            question = read_question(folder)
             dest.write(read_question(folder))
+            if not question.endswith('\n'):
+                dest.write('\n')
             dest.write('\n')
         continue
     

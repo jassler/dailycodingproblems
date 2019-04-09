@@ -18,6 +18,52 @@ optional arguments:
   -b          Benchmark problem set
 ```
 
+## Adding your own source code
+
+By default **every** function in **every** python file inside a problem-folder will be tested or benchmarked if not explicitly told not to do so. The parameters a function will receive for each problem set can be extracted from the file `testcases.py`.
+
+Test cases can look as follows:
+
+```python
+problem_001 = [
+    [[1, 19, 39, 40], 20, True],
+    [[1, 19, 39, 40], 79, True],
+    [[1, 19, 39, 40], 80, False],
+    [[], 0, False],
+    [[1], 1, False],
+    [[1, 19, 39, 40, 12, 49, 49, 192, -20, 1294, -1294, 4821, 201, 4832, 1249, 12, -421], 5000, False]
+]
+```
+
+Here, there are 6 different tests, one for each row. The last argument (in this case either `True` or `False`) describes the expected value to be returned. The first two arguments for each test (eg. `[1, 19, 39, 40]` and `20`) is the given input.
+
+If we were to write a function for this problem set, given its explicit types it should look as follows:
+
+```python
+def my_result(input_1: list, input_2: int) -> bool:
+    # calculate calculate calculate...
+    return True
+```
+
+### Ignoring functions
+
+If a function should not be tested or benchmarked, add an attribute `'test'` and / or `'benchmark'` respectively and set it to `False`.
+
+```python
+def do_not_test_me():
+    pass
+setattr(do_not_test_me, 'test', False)
+
+def do_not_benchmark_me():
+    pass
+setattr(do_not_benchmark_me, 'benchmark', False)
+
+def ignore_me_completely():
+    pass
+setattr(ignore_me_completely, 'test', False)
+setattr(ignore_me_completely, 'benchmark', False)
+```
+
 ## Questions
 
 ### Problem #1 [Easy]

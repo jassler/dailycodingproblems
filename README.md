@@ -1,6 +1,6 @@
 # Daily-Coding-Problems
 
-This repository aims to solve questions asked from the daily-coding-problem website: https://www.dailycodingproblem.com/
+This repository aims to solve questions asked from the daily-coding-problem website: <https://www.dailycodingproblem.com/>
 
 ## Usage
 

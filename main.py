@@ -38,7 +38,6 @@ try:
                 for _, f in getattr(module, '__dict__').items():
                     
                     if callable(f) and getattr(f, 'test', True):
-                        print(getattr(f, 'decorator_list'))
                         had_tests = True
                         testmain.test(f, cases)
         

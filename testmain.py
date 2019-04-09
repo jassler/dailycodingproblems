@@ -72,4 +72,4 @@ def benchmark(function, cases: list):
             function(*arguments)
         end = time.time()
 
-        print('\r{}: {} seconds'.format(case[0], end - start))
+        print('\r{}: {:.10f} seconds ({:.4} per run)'.format(case[0], end - start, (end-start) / case[1]))

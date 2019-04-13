@@ -22,3 +22,53 @@ problem_002 = [
     [[1], [1]],
     [[40, 0, 40], [0, 1600, 0]]
 ]
+
+### not sure how to test problem set 3 ###
+
+problem_004 = [
+    [[3, 4, -1, 1], 2],
+    [[1, 2, 0], 3],
+    [[x for x in range(0, 200) if x != 119], 119]
+]
+
+### not sure how to test problem set 5 ###
+
+### not sure how to test problem set 6 ###
+
+problem_007 = [
+    ['111', 3],
+    ['666', 1],
+    ['1234568129', 6],
+    ['11111111', 34],
+    ['53215923932149324932142010', 216]
+]
+
+### not sure how to test problem set 8 ###
+
+problem_009 = [
+    [[2, 4, 6, 2, 5], 13],
+    [[5, 1, 1, 5], 10],
+    [[0, -30, -10, -5], -5]
+]
+
+### problem set 10... what? ###
+
+problem_011 = [
+    [['dog', 'deer', 'deal'], 'de', ['deer', 'deal']],
+    [['frog', 'fridge', 'fafra', 'mutton'], 'fr', ['frog', 'fridge']]
+]
+
+# N number of steps, X number of steps that can be taken at once
+problem_012 = [
+    [4, [1, 2], 5],
+    [6, [1, 3, 5], 8] # not sure
+]
+
+problem_013 = [
+    ['abcba', 2, 'bcb'],
+    ['annatawa', 2, 'anna']
+]
+
+problem_014 = [
+    [3.141]
+]

@@ -2,7 +2,9 @@
 
 This repository aims to solve questions asked from the daily-coding-problem website: <https://www.dailycodingproblem.com/>
 
-## Usage
+Parts of this README have been auto-generated. If new problems are added or the command line arguments change, run `python update_readme.py` (Python version 3) to update this README.
+
+## *Usage
 
 ```text
 usage: main.py [-h] [-t] [-b] n [n ...]
@@ -64,7 +66,7 @@ setattr(ignore_me_completely, 'test', False)
 setattr(ignore_me_completely, 'benchmark', False)
 ```
 
-## Questions
+## *Questions
 
 ### Problem #1 [Easy]
 
@@ -203,3 +205,8 @@ For example, given s = "abcba" and k = 2, the longest substring with k distinct 
 The area of a circle is defined as πr^2. Estimate π to 3 decimal places using a Monte Carlo method.
 
 Hint: The basic equation of a circle is x2 + y2 = r2.
+
+### Question #15 [Medium]
+
+Given a stream of elements too large to store in memory, pick a random element from the stream with uniform probability.
+

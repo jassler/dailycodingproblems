@@ -23,7 +23,20 @@ problem_002 = [
     [[40, 0, 40], [0, 1600, 0]]
 ]
 
-### not sure how to test problem set 3 ###
+# expects following objects in solution
+# [0] => Node class with attributes left, right and val
+# [1] => serialize
+# [2] => deserialize
+problem_003 = [
+    "eval", [
+        "Node", "Node class with init parameters 'val' (any type), 'left' (optional Node object), 'right' (optional Node object)",
+        "serialize", "Serialize function that accepts a Node object as a paramater and turns it into a string",
+        "deserialize", "Deserialize function that turns a passed in string into a  object. deserialize(serialize(node)) should produce the same object"
+    ],
+    ["Node('root').val", "root"],
+    ["Node('root', Node('left', Node('left.left')), Node('right')).left.left.val", "left.left"],
+    ["deserialize(serialize(Node('root', Node('left', Node('left.left')), Node('right')))).left.left.val", "left.left"]
+]
 
 problem_004 = [
     [[3, 4, -1, 1], 2],

@@ -27,31 +27,90 @@ def test(function, cases: list):
 
     # insert linebreak before error messages, if it's not at the beginning of a line
     line_beginning = True
-    for args in cases:
-        result = function(*args[:-1])
 
-        if(args[-1] != result):
-            # ERROR: Print error message
-            if not line_beginning:
-                print()
-            print(style.RED('✘ Input was {}, expected {}, got {}'.format(str(args[:-1]), str(args[-1]), str(result))))
-            line_beginning = True
+    if cases[0] == 'eval':
+        def printExpectedObjects(o: list):
+            print('List must contain the following items:')
+            for i in range(0, len(o) // 2):
+                print('   index [{}]: {} - {}'.format(i, o[i*2], o[i*2+1]))
 
-        else:
-            # TEST GOOD!
-            line_beginning = False
-            passed += 1
-            print(style.GREEN('✓'), end='')
+
+        # use eval to test
+        
+        if len(cases) < 3 or len(cases[1]) % 2 != 0:
+            print(style.RED('There is a problem with this test case (expects index 1 to be key and description of each expected input, index 2 and up must be arrays with eval strings and expected output)'))
+            return
+
+        solution = function()
+        if not isinstance(solution, list):
+            print(style.RED('Returned object to be of type list'))
+            printExpectedObjects(cases[1])
+            return
+        
+        if len(solution) != len(cases[1]) // 2:
+            print(style.RED('Returned list must have a length of {}, got {}'.format(len(cases[1])//2, len(solution))))
+            printExpectedObjects(cases[1])
+            return
+
+        expectedObjects = {}
+        for i in range(0, len(cases[1]) // 2):
+            expectedObjects[cases[1][i*2]] = solution[i]
+        
+        for source in cases[2:]:
+            evaluation = eval(source[0], expectedObjects)
+            if evaluation != source[1]:
+                # ERROR: Print error message
+                if not line_beginning:
+                    print()
+                print(style.RED('✘ Input was "{}", expected {}, got {}'.format(str(source[0]), str(source[1]), str(solution))))
+                line_beginning = True
+
+            else:
+                # TEST GOOD!
+                line_beginning = False
+                passed += 1
+                print(style.GREEN('✓'), end='')
+        
+        if not line_beginning:
+            print()
+        
+        tests = len(cases) - 2
+        score_style = style.GREEN
+        if passed < tests // 2:
+            score_style = style.RED
+        elif passed < tests:
+            score_style = style.YELLOW
+        print(score_style('Passed {} / {} tests ({:.0f}%)'.format(passed, tests, passed * 100 / tests)))
+
+        if passed < tests:
+            print(style.YELLOW("Make sure you're returning the correct set of object in the correct order"))
+            printExpectedObjects(cases[1])
+    else:
+        for args in cases:
+            result = function(*args[:-1])
+
+            if(args[-1] != result):
+                # ERROR: Print error message
+                if not line_beginning:
+                    print()
+                print(style.RED('✘ Input was {}, expected {}, got {}'.format(str(args[:-1]), str(args[-1]), str(result))))
+                line_beginning = True
+
+            else:
+                # TEST GOOD!
+                line_beginning = False
+                passed += 1
+                print(style.GREEN('✓'), end='')
     
-    if not line_beginning:
-        print()
-    
-    score_style = style.GREEN
-    if passed < len(cases) / 2:
-        score_style = style.RED
-    elif passed < len(cases):
-        score_style = style.YELLOW
-    print(score_style('Passed {} / {} tests ({:.0f}%)'.format(passed, len(cases), passed * 100 / len(cases))))
+        if not line_beginning:
+            print()
+        
+        score_style = style.GREEN
+        if passed < len(cases) // 2:
+            score_style = style.RED
+        elif passed < len(cases):
+            score_style = style.YELLOW
+        print(score_style('Passed {} / {} tests ({:.0f}%)'.format(passed, len(cases), passed * 100 / len(cases))))
 
 def benchmark(function, cases: list):
     print(style.CYAN('=== Benchmarking function {}.{} ==='.format(function.__module__, function.__name__)))

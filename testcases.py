@@ -35,7 +35,10 @@ problem_003 = [
     ],
     ["Node('root').val", "root"],
     ["Node('root', Node('left', Node('left.left')), Node('right')).left.left.val", "left.left"],
-    ["deserialize(serialize(Node('root', Node('left', Node('left.left')), Node('right')))).left.left.val", "left.left"]
+    ["deserialize(serialize(Node('root', Node('left', Node('left.left')), Node('right')))).left.left.val", "left.left"],
+    ["deserialize(serialize(Node('root', Node('left', Node('left.left')), Node('right')))).left.val", "left"],
+    ["deserialize(serialize(Node('root', Node('left', Node('left.left')), Node('right')))).right.val", "right"],
+    ["deserialize(serialize(Node('root', Node('left', Node('left.left')), Node('right')))).right.right", None]
 ]
 
 problem_004 = [

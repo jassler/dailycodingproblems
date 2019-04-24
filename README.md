@@ -196,9 +196,9 @@ What if, instead of being able to climb 1 or 2 steps at a time, you could climb 
 
 ### Problem #13 [Hard]
 
-Given an integer k and a string s, find the length of the longest substring that contains at most k distinct characters.
+Given an integer `k` and a string `s`, find the length of the longest substring that contains at most `k` distinct characters.
 
-For example, given s = "abcba" and k = 2, the longest substring with k distinct characters is "bcb".
+For example, given `s = "abcba"` and `k = 2`, the longest substring with `k` distinct characters is `"bcb"`.
 
 ### Problem #14 [Medium]
 
@@ -209,4 +209,176 @@ Hint: The basic equation of a circle is x2 + y2 = r2.
 ### Question #15 [Medium]
 
 Given a stream of elements too large to store in memory, pick a random element from the stream with uniform probability.
+
+### Question #16 [Easy]
+
+You run an e-commerce website and want to record the last `N` order ids in a log. Implement a data structure to accomplish this, with the following API:
+
+* `record(order_id)`: adds the `order_id` to the log
+* `get_last(i)`: gets the `i`-th last element from the log. `i` is guaranteed to be smaller than or equal to `N`.
+
+You should be as efficient with time and space as possible.
+
+### Question #17 [Hard]
+
+Suppose we represent our file system by a string in the following manner:
+
+The string "`dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext`" represents:
+
+```text
+dir
+    subdir1
+    subdir2
+        file.ext
+```
+
+The directory `dir` contains an empty sub-directory `subdir1` and a sub-directory `subdir2` containing a file `file.ext`.
+
+The string "`dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tfile2.ext`" represents:
+
+```text
+dir
+    subdir1
+        file1.ext
+        subsubdir1
+    subdir2
+        subsubdir2
+            file2.ext
+```
+
+The directory `dir` contains two sub-directories `subdir1` and `subdir2`. `subdir1` contains a file `file1.ext` and an empty second-level sub-directory `subsubdir1`. `subdir2` contains a second-level sub-directory `subsubdir2` containing a file `file2.ext`.
+
+We are interested in finding the longest (number of characters) absolute path to a file within our file system. For example, in the second example above, the longest absolute path is "`dir/subdir2/subsubdir2/file2.ext`", and its length is 32 (not including the double quotes).
+
+Given a string representing the file system in the above format, return the length of the longest absolute path to a file in the abstracted file system. If there is no file in the system, return `0`.
+
+*Note*:
+
+* The name of a file contains at least a period and an extension.
+* The name of a directory or sub-directory will not contain a period.
+
+### Question #18 [Hard]
+
+Given an array of integers and a number `k`, where `1 <= k <= length` of the array, compute the maximum values of each subarray of length `k`.
+
+For example, given `array = [10, 5, 2, 7, 8, 7]` and `k = 3`, we should get: `[10, 7, 8, 8]`, since:
+
+* `10 = max(10, 5, 2)`
+* `7 = max(5, 2, 7)`
+* `8 = max(2, 7, 8)`
+* `8 = max(7, 8, 7)`
+
+Do this in O(n) time and O(k) space. You can modify the input array in-place and you do not need to store the results. You can simply print them out as you compute them.
+
+### Question #19 [Medium]
+
+A builder is looking to build a row of `N` houses that can be of `K` different colors. He has a goal of minimizing cost while ensuring that no two neighboring houses are of the same color.
+
+Given an `N` by `K` matrix where the `n`-th row and `k`-th column represents the cost to build the `n`-th house with `k`-th color, return the minimum cost which achieves this goal.
+
+### Question #20 [Easy]
+
+Given two singly linked lists that intersect at some point, find the intersecting node. The lists are non-cyclical.
+
+For example, given `A = 3 -> 7 -> 8 -> 10` and `B = 99 -> 1 -> 8 -> 10`, return the node with value `8`.
+
+In this example, assume nodes with the same value are the exact same node objects.
+
+Do this in O(M + N) time (where M and N are the lengths of the lists) and constant space.
+
+### Question #21
+
+Given an array of time intervals (start, end) for classroom lectures (possibly overlapping), find the minimum number of rooms required.
+
+For example, given `[(30, 75), (0, 50), (60, 150)]`, you should return `2`.
+
+### Question #22 [Medium]
+
+Given a dictionary of words and a string made up of those words (no spaces), return the original sentence in a list. If there is more than one possible reconstruction, return any of them. If there is no possible reconstruction, then return null.
+
+For example, given the set of words `'quick'`, `'brown'`, `'the'`, `'fox'`, and the string "`thequickbrownfox`", you should return `['the', 'quick', 'brown', 'fox']`.
+
+Given the set of words '`bed`', '`bath`', '`bedbath`', '`and`', '`beyond`', and the string "bedbathandbeyond", return either `['bed', 'bath', 'and', 'beyond]` or `['bedbath', 'and', 'beyond']`.
+
+### Question #23 [Easy]
+
+You are given an `M` by `N` matrix consisting of booleans that represents a board. Each `True` boolean represents a wall. Each `False` boolean represents a tile you can walk on.
+
+Given this matrix, a start coordinate, and an end coordinate, return the minimum number of steps required to reach the end coordinate from the start. If there is no possible path, then return `null`. You can move up, left, down, and right. You cannot move through walls. You cannot wrap around the edges of the board.
+
+For example, given the following board:
+
+```text
+[[f, f, f, f],
+ [t, t, f, t],
+ [f, f, f, f],
+ [f, f, f, f]]
+```
+
+and `start = (3, 0)` (bottom left) and `end = (0, 0)` (top left), the minimum number of steps required to reach the end is `7`, since we would need to go through `(1, 2)` because there is a wall everywhere else on the second row.
+
+### Question #24 [Medium]
+
+Implement locking in a binary tree. A binary tree node can be locked or unlocked only if all of its descendants or ancestors are not locked.
+
+Design a binary tree node class with the following methods:
+
+* `is_locked`, which returns whether the node is locked
+* `lock`, which attempts to lock the node. If it cannot be locked, then it should return false. Otherwise, it should lock it and return true.
+* `unlock`, which unlocks the node. If it cannot be unlocked, then it should return false. Otherwise, it should unlock it and return true.
+
+You may augment the node to add parent pointers or any other property you would like. You may assume the class is used in a single-threaded program, so there is no need for actual locks or mutexes. Each method should run in O(h), where h is the height of the tree.
+
+### Question #25 [Hard]
+
+Implement regular expression matching with the following special characters:
+
+* . (period) which matches any single character
+* \* (asterisk) which matches zero or more of the preceding element
+
+That is, implement a function that takes in a string and a valid regular expression and returns whether or not the string matches the regular expression.
+
+For example, given the regular expression "ra." and the string "ray", your function should return true. The same regular expression on the string "raymond" should return false.
+
+Given the regular expression ".*at" and the string "chat", your function should return true. The same regular expression on the string "chats" should return false.
+
+### Question #26 [Medium]
+
+Given a singly linked list and an integer `k`, remove the `k`-th last element from the list. `k` is guaranteed to be smaller than the length of the list.
+
+The list is very long, so making more than one pass is prohibitively expensive.
+
+Do this in constant space and in one pass.
+
+### Question #27 [Easy]
+
+Given a string of round, curly, and square open and closing brackets, return whether the brackets are balanced (well-formed).
+
+For example, given the string "`([])[]({})`", you should return true.
+
+Given the string "`([)]`" or "`((()`", you should return false.
+
+### Question #28 [Medium]
+
+Write an algorithm to justify text. Given a sequence of words and an integer line length `k`, return a list of strings which represents each line, fully justified.
+
+More specifically, you should have as many words as possible in each line. There should be at least one space between each word. Pad extra spaces when necessary so that each line has exactly length `k`. Spaces should be distributed as equally as possible, with the extra spaces, if any, distributed starting from the left.
+
+If you can only fit one word on a line, then you should pad the right-hand side with spaces.
+
+Each word is guaranteed not to be longer than `k`.
+
+For example, given the list of words `["the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"]` and `k = 16`, you should return the following:
+
+```text
+["the  quick brown", # 1 extra space on the left
+"fox  jumps  over", # 2 extra spaces distributed evenly
+"the   lazy   dog"] # 4 extra spaces distributed evenly
+```
+
+### Question #29 [Easy]
+
+Run-length encoding is a fast and simple method of encoding strings. The basic idea is to represent repeated successive characters as a single count and character. For example, the string "`AAAABBBCCDAA`" would be encoded as "`4A3B2C1D2A`".
+
+Implement run-length encoding and decoding. You can assume the string to be encoded have no digits and consists solely of alphabetic characters. You can assume the string to be decoded is valid.
 
